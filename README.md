@@ -1,6 +1,6 @@
-# Dive Buddies | Template
+# Dive Buddies | Divers
 
-A template repository for any projects. This includes any configuration files, workflow files or scripts that can be used throughout the organisation.
+The domain responsible for creating and managing diver accounts.
 
 ## Directory Structure
 
