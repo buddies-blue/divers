@@ -1,0 +1,9 @@
+# User Configurations
+.vs
+.vscode
+
+*.csproj.user
+
+# Build Files
+bin
+obj
