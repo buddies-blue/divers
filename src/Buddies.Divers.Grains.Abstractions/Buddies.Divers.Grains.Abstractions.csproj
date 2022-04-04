@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<Authors>Dive Buddies</Authors>
+		<RepositoryType>git</RepositoryType>
+		<RepositoryUrl>git@github.com:buddies-blue/divers.git</RepositoryUrl>
+	</PropertyGroup>
+
+	<!-- Package References -->
+	<ItemGroup>
+		<PackageReference Include="Microsoft.Orleans.Core.Abstractions" Version="3.6.0" />
+	</ItemGroup>
+
+</Project>
