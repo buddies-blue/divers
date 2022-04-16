@@ -18,4 +18,9 @@
 		<PackageReference Include="Microsoft.Orleans.Core.Abstractions" Version="3.6.0" />
 	</ItemGroup>
 
+	<!-- Project References -->
+	<ItemGroup>
+		<ProjectReference Include="..\Builders.Divers.Abstractions\Builders.Divers.Abstractions.csproj" />
+	</ItemGroup>
+
 </Project>
