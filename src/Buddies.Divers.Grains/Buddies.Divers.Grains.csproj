@@ -20,6 +20,7 @@
 
 	<!-- Project References -->
 	<ItemGroup>
+		<ProjectReference Include="..\Buddies.Divers.Data.Abstractions\Buddies.Divers.Data.Abstractions.csproj" />
 		<ProjectReference Include="..\Buddies.Divers.Grains.Abstractions\Buddies.Divers.Grains.Abstractions.csproj" />
 	</ItemGroup>
 
