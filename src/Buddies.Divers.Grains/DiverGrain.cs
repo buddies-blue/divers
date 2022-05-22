@@ -1,4 +1,5 @@
-﻿using Buddies.Divers.Grains.Abstractions;
+﻿using Buddies.Divers.Data.Abstractions.Services;
+using Buddies.Divers.Grains.Abstractions;
 using Builders.Divers.Abstractions.Entities;
 using Orleans;
 
@@ -6,12 +7,19 @@ namespace Buddies.Divers.Grains
 {
 	internal class DiverGrain : Grain, IDiverGrain
 	{
+		private readonly IDiverService _diverService;
+
+		public DiverGrain(IDiverService diverService)
+		{
+			_diverService = diverService;
+		}
+
 		#region Properties
 
 		/// <summary>
 		/// Diver identifier
 		/// </summary>
-		public string DiverID { get; private set; } = null!;
+		public string DiverId { get; private set; } = null!;
 
 		/// <summary>
 		/// Diver account and profile
@@ -27,7 +35,7 @@ namespace Buddies.Divers.Grains
 			await base.OnActivateAsync();
 
 			// Retrieve identifier
-			DiverID = this.GetPrimaryKeyString();
+			DiverId = this.GetPrimaryKeyString();
 
 			// TODO - Get diver account and profile from database
 		}
@@ -39,7 +47,7 @@ namespace Buddies.Divers.Grains
 			// Ensure that diver does not exist
 			if (Account is not null)
 			{
-				throw new InvalidOperationException($"Account '{DiverID}' already exists.");
+				throw new InvalidOperationException($"Account '{DiverId}' already exists.");
 			}
 
 			// Update account record
@@ -54,7 +62,7 @@ namespace Buddies.Divers.Grains
 			// Ensure that diver exists
 			if (Account is null)
 			{
-				throw new InvalidOperationException($"Account '{DiverID}' does not exist.");
+				throw new InvalidOperationException($"Account '{DiverId}' does not exist.");
 			}
 
 			// Update profile record
@@ -69,15 +77,23 @@ namespace Buddies.Divers.Grains
 			// Ensure that diver exists
 			if (Account is null)
 			{
-				throw new InvalidOperationException($"Account '{DiverID}' does not exist.");
+				throw new InvalidOperationException($"Account '{DiverId}' does not exist.");
 			}
 
-			throw new NotImplementedException();
+			// Delete diver account
+			return _diverService.DeleteAsync(DiverId);
 		}
 
-		private async Task CreateOrUpdateAsync()
+		private Task CreateOrUpdateAsync()
 		{
-			throw new NotImplementedException();
+			// Ensure that diver exists
+			if (Account is null)
+			{
+				throw new InvalidOperationException($"Account '{DiverId}' does not exist.");
+			}
+
+			// Create or update diver account
+			return _diverService.CreateOrUpdateAsync(DiverId, Account);
 		}
 	}
 }
