@@ -37,7 +37,8 @@ namespace Buddies.Divers.Grains
 			// Retrieve identifier
 			DiverId = this.GetPrimaryKeyString();
 
-			// TODO - Get diver account and profile from database
+			// Retrieve diver account
+			Account = await _diverService.GetAsync(DiverId);
 		}
 
 		#endregion
