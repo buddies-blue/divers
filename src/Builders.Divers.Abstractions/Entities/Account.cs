@@ -13,12 +13,12 @@
 		/// <summary>
 		/// Facebook OAuth ID
 		/// </summary>
-		public string? FacebookID { get; set; }
+		public string? FacebookId { get; set; }
 
 		/// <summary>
 		/// Google OAuth ID
 		/// </summary>
-		public string? GoogleID { get; set; }
+		public string? GoogleId { get; set; }
 
 		/// <summary>
 		/// Diver profile
