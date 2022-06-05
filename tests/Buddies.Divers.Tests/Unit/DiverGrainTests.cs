@@ -11,7 +11,7 @@ using System;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace Buddies.Divers.Tests
+namespace Buddies.Divers.Tests.Unit
 {
 	public class DiverGrainTests : IClassFixture<DiverGrainFixture>, IAsyncLifetime
 	{
